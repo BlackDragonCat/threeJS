@@ -2,12 +2,58 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>My first three.js app</title>
+		<title>three-home</title>
 		<style>
-			body { margin: 0; }
+			body { 
+                margin: 0; 
+                height: 100vh;
+                width: 100vw;
+                border: 1px solid white;
+                background-color: rgb(245, 245, 245);
+                overflow: hidden;
+            }
+            .layout{
+                height: calc(100% - 30px);
+                width:calc(100% - 30px);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin: 15px;
+            }
+            .layout_left{
+                height: 100%;
+                width: 200px;
+                background-color: rgb(98, 193, 188);
+            }
+            .layout_right{
+                height: calc(100% );
+                width: calc(100% - 200px - 15px );
+                background-color: white;
+            }
 		</style>
+        <script>
+            function toPage(path){
+                document.getElementById('dynamicIframe').src = '/src/'+ path + '/index.html';
+                return;
+                fetch('/src/'+ path + '/index.html')
+                    .then(response => response.text())
+                    .then(content => {
+                        document.getElementById('content').innerHTML = content;
+                    });
+            }
+        </script>
 	</head>
 	<body>
-		<script type="module" src="/main.js"></script>
+        <div class="layout">
+            <div class="layout_left">
+                <button onclick="toPage('moduleOne')">模型一</button>
+            </div>
+            <div id="content" class="layout_right">
+                <iframe id="dynamicIframe" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+            
+        </div>
+		
+        
 	</body>
 </html>
