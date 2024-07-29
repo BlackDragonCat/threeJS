@@ -1,0 +1,63 @@
+:root{
+    --router-list: #12aa9c;
+    --router-item: #12aa9c;
+    --router-item-hover: #57c3c2;
+    --router-item-active: #12aa9c;
+
+}
+.layout{
+    height: calc(100% - 30px);
+    width:calc(100% - 30px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 15px;
+}
+.layout_left{
+    height: 100%;
+    width: 200px;
+    background-color: white;
+}
+.layout_right{
+    height: calc(100% );
+    width: calc(100% - 200px - 15px );
+    background-color: white;
+}
+.routerList{
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--router-list);
+}
+.routerInner {
+    max-height: 100%;
+    height: auto;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: transparent;
+}
+.routerItem {
+    height: 40px;
+    width: revert;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    background-color: var(--router-item);
+    overflow: hidden;
+}
+.routerItem:hover {
+    cursor: pointer;
+    background-color: var(--router-item-hover);
+}
+.routerItem:active {
+    cursor: pointer;
+    background-color: var(--router-item-active);
+}
+.layout_left ::-webkit-scrollbar {
+    display: none;
+}
